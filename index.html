@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGHERUS | Minecraft Tierlist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="login-overlay" class="overlay">
+        <div class="login-card card">
+            <h1 class="logo">SGHERUS</h1>
+            <p>Accedi per visualizzare la classifica e i tuoi tier ufficiali.</p>
+            <button onclick="loginWithDiscord()" class="btn-discord">
+                <i class="fab fa-discord"></i> Accedi con Discord
+            </button>
+        </div>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <nav class="navbar">
+            <div class="logo">SGHERUS</div>
+            <div class="nav-links">
+                <a href="#" onclick="showSection('ranking')" id="nav-rank" class="active"><i class="fas fa-trophy"></i> Ranking</a>
+                <a href="#" onclick="accessAdmin()"><i class="fas fa-user-shield"></i> Admin</a>
+                <div id="nav-user-info" class="user-nav-profile"></div>
+            </div>
+        </nav>
+
+        <main class="container">
+            
+            <section id="section-ranking">
+                <header class="hero">
+                    <p class="subtitle"># TEAM SGHERUS • OFFICIAL TIER SYSTEM</p>
+                    <h1 class="main-title">SGHERUS</h1>
+                    <p class="tagline">La tierlist ufficiale degli SGHERUS.</p>
+                </header>
+
+                <div class="table-container card">
+                    <table class="leaderboard">
+                        <thead>
+                            <tr>
+                                <th>RANK</th>
+                                <th>PLAYER</th>
+                                <th class="text-right">MODES</th>
+                                <th class="text-right">POINTS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="section-profile" style="display:none;">
+                <button class="btn-back" onclick="showSection('ranking')"><i class="fas fa-arrow-left"></i> Torna alla classifica</button>
+                
+                <div class="profile-header card">
+                    <div class="profile-info">
+                        <img id="p-avatar" src="" class="big-avatar">
+                        <div>
+                            <span class="label-player">PLAYER</span>
+                            <h2 id="p-name">Username</h2>
+                            <span class="badge-tag">OG</span>
+                        </div>
+                    </div>
+                    <div class="profile-score">
+                        <span class="label-points">TOTAL POINTS</span>
+                        <div id="p-total-points" class="score-value">0</div>
+                    </div>
+                </div>
+
+                <h3>Tier per Modalità</h3>
+                <div class="modes-grid" id="modes-container"></div>
+
+                <div class="bottom-grid">
+                    <div class="history-section card">
+                        <h3><i class="fas fa-calendar-alt"></i> Storico test</h3>
+                        <div id="history-list">
+                            <div class="history-item"><span>Test Iniziale</span> <span>LT5</span></div>
+                        </div>
+                    </div>
+                    <div class="reviews-section card">
+                        <h3><i class="fas fa-comment-dots"></i> Recensioni Admin</h3>
+                        <div class="review-box">
+                            <p id="p-review">Player molto costante nelle combo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="admin-panel" class="card admin-card" style="display:none;">
+                <h3>Aggiorna Tier Player</h3>
+                <div class="admin-grid">
+                    <input type="text" id="playerName" placeholder="Nome Player Minecraft...">
+                    <select id="modeSelect">
+                        <option value="SMP">SMP</option>
+                        <option value="NETPOT">NETPOT</option>
+                        <option value="SWORD">SWORD</option>
+                        <option value="CRYSTAL">CRYSTAL</option>
+                        <option value="AXE">AXE</option>
+                        <option value="MACE">MACE</option>
+                        <option value="CREEPER">CREEPER</option>
+                    </select>
+                    <select id="tierSelect">
+                        <option value="HT1">HT1 (10 PT)</option><option value="LT1">LT1 (9 PT)</option>
+                        <option value="HT2">HT2 (8 PT)</option><option value="LT2">LT2 (6 PT)</option>
+                        <option value="HT3">HT3 (5 PT)</option><option value="LT3">LT3 (4 PT)</option>
+                        <option value="HT4">HT4 (3 PT)</option><option value="LT4">LT4 (2 PT)</option>
+                        <option value="HT5">HT5 (1 PT)</option><option value="LT5">LT5 (0 PT)</option>
+                    </select>
+                    <button class="btn-blue" onclick="addOrUpdatePlayer()">Salva Modifiche</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
