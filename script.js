@@ -1,5 +1,5 @@
 // --- CONFIGURAZIONE ---
-const DISCORD_CLIENT_ID = '123456789012345678'; // <-- Incolla qui il numero copiato
+const DISCORD_CLIENT_ID = '123456789012345678'; //
 const pointsMap = { 'HT1': 10, 'LT1': 9, 'HT2': 8, 'LT2': 6, 'HT3': 5, 'LT3': 4, 'HT4': 3, 'LT4': 2, 'HT5': 1, 'LT5': 0 };
 const modes = ['SMP', 'NETPOT', 'SWORD', 'CRYSTAL', 'AXE', 'MACE', 'CREEPER'];
 
